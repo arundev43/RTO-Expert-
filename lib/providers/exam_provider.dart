@@ -27,9 +27,12 @@ class ExamProvider extends ChangeNotifier {
   int get questionNumber => currentIndex + 1;
   int get totalCount => _questions.length;
 
-  Future<void> startExam({required String stateCode, required String languageCode}) async {
-    _questions = await QuestionRepository.instance
-        .generateExamSet(stateCode: stateCode, languageCode: languageCode, count: totalQuestions);
+  Future<void> startExam(
+      {required String stateCode, required String languageCode}) async {
+    _questions = await QuestionRepository.instance.generateExamSet(
+        stateCode: stateCode,
+        languageCode: languageCode,
+        count: totalQuestions);
     currentIndex = 0;
     correctCount = 0;
     wrongCount = 0;

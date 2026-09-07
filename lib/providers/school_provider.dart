@@ -10,13 +10,15 @@ class SchoolProvider extends ChangeNotifier {
   Future<void> loadNearby({required double lat, required double lng}) async {
     isLoading = true;
     notifyListeners();
-    nearbySchools = await SchoolRepository.instance.getApprovedNearby(lat: lat, lng: lng);
+    nearbySchools =
+        await SchoolRepository.instance.getApprovedNearby(lat: lat, lng: lng);
     isLoading = false;
     notifyListeners();
   }
 
   Future<void> loadMyContributions(String userId) async {
-    myContributions = await SchoolRepository.instance.getMyContributions(userId);
+    myContributions =
+        await SchoolRepository.instance.getMyContributions(userId);
     notifyListeners();
   }
 

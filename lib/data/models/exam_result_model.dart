@@ -15,7 +15,8 @@ class ExamResultModel {
     required this.timeTaken,
   });
 
-  factory ExamResultModel.fromJson(Map<String, dynamic> json) => ExamResultModel(
+  factory ExamResultModel.fromJson(Map<String, dynamic> json) =>
+      ExamResultModel(
         id: json['id'] as String,
         takenAt: DateTime.parse(json['takenAt'] as String),
         totalQuestions: json['totalQuestions'] as int,

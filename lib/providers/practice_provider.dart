@@ -26,8 +26,8 @@ class PracticeProvider extends ChangeNotifier {
     String topic = 'All',
   }) async {
     selectedTopic = topic;
-    _questions = await QuestionRepository.instance
-        .loadByTopic(stateCode: stateCode, languageCode: languageCode, topic: topic);
+    _questions = await QuestionRepository.instance.loadByTopic(
+        stateCode: stateCode, languageCode: languageCode, topic: topic);
     bookmarkedIds = await StorageService.instance.getBookmarkedQuestionIds();
     currentIndex = 0;
     selectedOptionIndex = null;

@@ -14,7 +14,9 @@ class ExamScreen extends StatelessWidget {
       create: (ctx) {
         final settings = ctx.read<AppSettingsProvider>();
         final provider = ExamProvider();
-        provider.startExam(stateCode: settings.stateCode!, languageCode: settings.languageCode!);
+        provider.startExam(
+            stateCode: settings.stateCode!,
+            languageCode: settings.languageCode!);
         return provider;
       },
       child: const _ExamBody(),
@@ -64,11 +66,14 @@ class _ExamBody extends StatelessWidget {
                     child: CircularProgressIndicator(
                       value: timerProgress,
                       strokeWidth: 3,
-                      color: timerProgress < 0.3 ? Colors.red : Theme.of(context).colorScheme.primary,
+                      color: timerProgress < 0.3
+                          ? Colors.red
+                          : Theme.of(context).colorScheme.primary,
                       backgroundColor: Theme.of(context).dividerColor,
                     ),
                   ),
-                  Text('${exam.secondsLeft}', style: const TextStyle(fontSize: 11)),
+                  Text('${exam.secondsLeft}',
+                      style: const TextStyle(fontSize: 11)),
                 ],
               ),
             ),
@@ -83,7 +88,8 @@ class _ExamBody extends StatelessWidget {
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: Text('Q. ${q.question}', style: Theme.of(context).textTheme.titleMedium),
+                child: Text('Q. ${q.question}',
+                    style: Theme.of(context).textTheme.titleMedium),
               ),
             ),
             const SizedBox(height: 16),
@@ -100,9 +106,11 @@ class _ExamBody extends StatelessWidget {
             const Spacer(),
             Row(
               children: [
-                Text('✓ ${exam.correctCount}', style: const TextStyle(color: Colors.green)),
+                Text('✓ ${exam.correctCount}',
+                    style: const TextStyle(color: Colors.green)),
                 const SizedBox(width: 16),
-                Text('✕ ${exam.wrongCount}', style: const TextStyle(color: Colors.red)),
+                Text('✕ ${exam.wrongCount}',
+                    style: const TextStyle(color: Colors.red)),
                 const Spacer(),
                 ElevatedButton(
                   onPressed: exam.selectedOptionIndex == null

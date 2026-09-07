@@ -22,7 +22,8 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
     await AdsService.instance.showBeforeExamAd();
     if (!mounted) return;
     setState(() => _starting = false);
-    Navigator.push(context, MaterialPageRoute(builder: (_) => const ExamScreen()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => const ExamScreen()));
   }
 
   @override
@@ -35,12 +36,16 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Mock RTO Exam', style: Theme.of(context).textTheme.titleLarge),
+            Text('Mock RTO Exam',
+                style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 12),
-            _rule(context, Icons.format_list_numbered, '10 questions per attempt'),
+            _rule(context, Icons.format_list_numbered,
+                '10 questions per attempt'),
             _rule(context, Icons.timer_outlined, '30 seconds per question'),
-            _rule(context, Icons.emoji_events_outlined, 'Score 7/10 or higher to pass'),
-            _rule(context, Icons.language, 'For ${settings.selectedState?.name ?? 'your state'}'),
+            _rule(context, Icons.emoji_events_outlined,
+                'Score 7/10 or higher to pass'),
+            _rule(context, Icons.language,
+                'For ${settings.selectedState?.name ?? 'your state'}'),
             const Spacer(),
             SizedBox(
               width: double.infinity,
@@ -48,8 +53,10 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
                 onPressed: _starting ? null : _startExam,
                 icon: _starting
                     ? const SizedBox(
-                        width: 18, height: 18,
-                        child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(
+                            strokeWidth: 2, color: Colors.white),
                       )
                     : const Icon(Icons.play_arrow),
                 label: Text(_starting ? 'Loading…' : 'Start Exam'),

@@ -12,7 +12,8 @@ class QuestionRepository {
 
   final Map<String, List<QuestionModel>> _cache = {}; // key: "TN_en"
 
-  String _key(String stateCode, String languageCode) => '${stateCode}_$languageCode';
+  String _key(String stateCode, String languageCode) =>
+      '${stateCode}_$languageCode';
 
   Future<List<QuestionModel>> loadQuestions({
     required String stateCode,
@@ -22,8 +23,8 @@ class QuestionRepository {
     if (_cache.containsKey(key)) return _cache[key]!;
 
     try {
-      final raw = await rootBundle
-          .loadString('assets/data/questions_${stateCode.toLowerCase()}_$languageCode.json');
+      final raw = await rootBundle.loadString(
+          'assets/data/questions_${stateCode.toLowerCase()}_$languageCode.json');
       final list = (jsonDecode(raw) as List)
           .map((e) => QuestionModel.fromJson(e as Map<String, dynamic>))
           .toList();
@@ -31,7 +32,8 @@ class QuestionRepository {
       return list;
     } catch (_) {
       // Falls back to the generic sample bank shipped for demo/dev purposes.
-      final raw = await rootBundle.loadString('assets/data/questions_sample.json');
+      final raw =
+          await rootBundle.loadString('assets/data/questions_sample.json');
       final list = (jsonDecode(raw) as List)
           .map((e) => QuestionModel.fromJson(e as Map<String, dynamic>))
           .toList();
@@ -45,7 +47,8 @@ class QuestionRepository {
     required String languageCode,
     required String topic,
   }) async {
-    final all = await loadQuestions(stateCode: stateCode, languageCode: languageCode);
+    final all =
+        await loadQuestions(stateCode: stateCode, languageCode: languageCode);
     if (topic == 'All') return all;
     return all.where((q) => q.topic == topic).toList();
   }

@@ -42,7 +42,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: SafeArea(
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 250),
-          child: _selectedState == null ? _buildStateStep() : _buildLanguageStep(),
+          child:
+              _selectedState == null ? _buildStateStep() : _buildLanguageStep(),
         ),
       ),
     );
@@ -55,7 +56,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 24, 20, 8),
-          child: Text('Select your State', style: Theme.of(context).textTheme.titleLarge),
+          child: Text('Select your State',
+              style: Theme.of(context).textTheme.titleLarge),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -102,7 +104,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () => setState(() => _selectedState = null),
               ),
-              Text('Select Language', style: Theme.of(context).textTheme.titleLarge),
+              Text('Select Language',
+                  style: Theme.of(context).textTheme.titleLarge),
             ],
           ),
         ),

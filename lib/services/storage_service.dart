@@ -13,7 +13,8 @@ class StorageService {
   static const _kLanguageCode = 'language_code';
   static const _kThemeMode = 'theme_mode'; // 'system' | 'light' | 'dark'
   static const _kIsPremium = 'is_premium';
-  static const _kUserId = 'user_id'; // set only after login (payment or contribution)
+  static const _kUserId =
+      'user_id'; // set only after login (payment or contribution)
   static const _kExamHistory = 'exam_history';
   static const _kFreeSchoolSubmissionUsed = 'free_school_submission_used';
   static const _kBookmarkedQuestionIds = 'bookmarked_question_ids';
@@ -21,25 +22,32 @@ class StorageService {
   Future<SharedPreferences> get _prefs => SharedPreferences.getInstance();
 
   // --- Onboarding selection ---
-  Future<void> setStateAndLanguage(String stateCode, String languageCode) async {
+  Future<void> setStateAndLanguage(
+      String stateCode, String languageCode) async {
     final p = await _prefs;
     await p.setString(_kStateCode, stateCode);
     await p.setString(_kLanguageCode, languageCode);
   }
 
   Future<String?> getStateCode() async => (await _prefs).getString(_kStateCode);
-  Future<String?> getLanguageCode() async => (await _prefs).getString(_kLanguageCode);
+  Future<String?> getLanguageCode() async =>
+      (await _prefs).getString(_kLanguageCode);
   Future<bool> hasCompletedOnboarding() async => await getStateCode() != null;
 
   // --- Theme ---
-  Future<void> setThemeMode(String mode) async => (await _prefs).setString(_kThemeMode, mode);
-  Future<String> getThemeMode() async => (await _prefs).getString(_kThemeMode) ?? 'system';
+  Future<void> setThemeMode(String mode) async =>
+      (await _prefs).setString(_kThemeMode, mode);
+  Future<String> getThemeMode() async =>
+      (await _prefs).getString(_kThemeMode) ?? 'system';
 
   // --- Premium / login ---
-  Future<void> setPremium(bool value) async => (await _prefs).setBool(_kIsPremium, value);
-  Future<bool> isPremium() async => (await _prefs).getBool(_kIsPremium) ?? false;
+  Future<void> setPremium(bool value) async =>
+      (await _prefs).setBool(_kIsPremium, value);
+  Future<bool> isPremium() async =>
+      (await _prefs).getBool(_kIsPremium) ?? false;
 
-  Future<void> setUserId(String userId) async => (await _prefs).setString(_kUserId, userId);
+  Future<void> setUserId(String userId) async =>
+      (await _prefs).setString(_kUserId, userId);
   Future<String?> getUserId() async => (await _prefs).getString(_kUserId);
   Future<bool> isLoggedIn() async => await getUserId() != null;
 

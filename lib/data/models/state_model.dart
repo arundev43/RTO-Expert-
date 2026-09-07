@@ -3,7 +3,8 @@ class StateModel {
   final String name; // "Tamil Nadu"
   final List<LanguageOption> languages;
 
-  const StateModel({required this.code, required this.name, required this.languages});
+  const StateModel(
+      {required this.code, required this.name, required this.languages});
 }
 
 class LanguageOption {

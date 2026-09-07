@@ -36,7 +36,8 @@ class _AddSchoolScreenState extends State<AddSchoolScreen> {
 
     final schoolProvider = context.read<SchoolProvider>();
     final settings = context.read<AppSettingsProvider>();
-    final requiresPayment = await schoolProvider.nextSubmissionRequiresPayment();
+    final requiresPayment =
+        await schoolProvider.nextSubmissionRequiresPayment();
 
     if (requiresPayment) {
       final paid = await _showPaymentGate(settings);
@@ -65,7 +66,9 @@ class _AddSchoolScreenState extends State<AddSchoolScreen> {
     if (!mounted) return;
     setState(() => _submitting = false);
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Submitted for review — usually approved in 24–48 hrs.')),
+      const SnackBar(
+          content:
+              Text('Submitted for review — usually approved in 24–48 hrs.')),
     );
     Navigator.pop(context);
   }
@@ -79,18 +82,23 @@ class _AddSchoolScreenState extends State<AddSchoolScreen> {
       showDragHandle: true,
       builder: (ctx) => Padding(
         padding: EdgeInsets.only(
-          left: 20, right: 20, top: 8,
+          left: 20,
+          right: 20,
+          top: 8,
           bottom: MediaQuery.of(ctx).viewInsets.bottom + 20,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('One More Listing?', style: Theme.of(ctx).textTheme.titleLarge),
+            Text('One More Listing?',
+                style: Theme.of(ctx).textTheme.titleLarge),
             const SizedBox(height: 8),
-            const Text('Your first school listing was free. Additional listings are ₹20 each.'),
+            const Text(
+                'Your first school listing was free. Additional listings are ₹20 each.'),
             const SizedBox(height: 16),
-            const Text('Sign in to continue — this links your submission for status updates and refunds if rejected.'),
+            const Text(
+                'Sign in to continue — this links your submission for status updates and refunds if rejected.'),
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
@@ -126,20 +134,23 @@ class _AddSchoolScreenState extends State<AddSchoolScreen> {
             TextFormField(
               controller: _name,
               decoration: const InputDecoration(labelText: 'School Name'),
-              validator: (v) => (v == null || v.trim().isEmpty) ? 'Required' : null,
+              validator: (v) =>
+                  (v == null || v.trim().isEmpty) ? 'Required' : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
               controller: _address,
               decoration: const InputDecoration(labelText: 'Address'),
-              validator: (v) => (v == null || v.trim().isEmpty) ? 'Required' : null,
+              validator: (v) =>
+                  (v == null || v.trim().isEmpty) ? 'Required' : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
               controller: _phone,
               decoration: const InputDecoration(labelText: 'Phone Number'),
               keyboardType: TextInputType.phone,
-              validator: (v) => (v == null || v.trim().isEmpty) ? 'Required' : null,
+              validator: (v) =>
+                  (v == null || v.trim().isEmpty) ? 'Required' : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -155,7 +166,10 @@ class _AddSchoolScreenState extends State<AddSchoolScreen> {
             ElevatedButton(
               onPressed: _submitting ? null : _submit,
               child: _submitting
-                  ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2))
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2))
                   : const Text('Submit'),
             ),
           ],

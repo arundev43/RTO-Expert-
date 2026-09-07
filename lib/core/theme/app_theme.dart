@@ -69,8 +69,10 @@ class AppTheme {
       ),
       dividerTheme: DividerThemeData(color: border, thickness: 1),
       textTheme: TextTheme(
-        titleLarge: TextStyle(color: textPrimary, fontWeight: FontWeight.w700, fontSize: 22),
-        titleMedium: TextStyle(color: textPrimary, fontWeight: FontWeight.w600, fontSize: 17),
+        titleLarge: TextStyle(
+            color: textPrimary, fontWeight: FontWeight.w700, fontSize: 22),
+        titleMedium: TextStyle(
+            color: textPrimary, fontWeight: FontWeight.w600, fontSize: 17),
         bodyLarge: TextStyle(color: textPrimary, fontSize: 16),
         bodyMedium: TextStyle(color: textSecondary, fontSize: 14),
         labelLarge: const TextStyle(fontWeight: FontWeight.w600),
@@ -80,7 +82,8 @@ class AppTheme {
           backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           minimumSize: const Size.fromHeight(50),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           elevation: 0,
         ),
       ),
@@ -88,7 +91,8 @@ class AppTheme {
         style: OutlinedButton.styleFrom(
           minimumSize: const Size.fromHeight(50),
           side: BorderSide(color: border),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -105,7 +109,8 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: border),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       ),
     );
   }

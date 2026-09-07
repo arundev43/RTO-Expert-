@@ -33,7 +33,9 @@ class RtoExpertApp extends StatelessWidget {
             themeMode: settings.themeMode,
             home: !settings.isLoaded
                 ? const _SplashScreen()
-                : (settings.stateCode == null ? const OnboardingScreen() : const HomeScreen()),
+                : (settings.stateCode == null
+                    ? const OnboardingScreen()
+                    : const HomeScreen()),
           );
         },
       ),

@@ -10,8 +10,10 @@ class AdsService {
   AdsService._();
   static final AdsService instance = AdsService._();
 
-  static const String bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111'; // test ID
-  static const String rewardedAdUnitId = 'ca-app-pub-3940256099942544/5224354917'; // test ID
+  static const String bannerAdUnitId =
+      'ca-app-pub-3940256099942544/6300978111'; // test ID
+  static const String rewardedAdUnitId =
+      'ca-app-pub-3940256099942544/5224354917'; // test ID
 
   RewardedAd? _rewardedAd;
 
@@ -48,7 +50,8 @@ class AdsService {
   /// skip straight through. Returns true once the user may proceed.
   Future<bool> showBeforeExamAd() async {
     if (await _isPremium()) return true;
-    if (_rewardedAd == null) return true; // fail-open: never block the exam on an ad failure
+    if (_rewardedAd == null)
+      return true; // fail-open: never block the exam on an ad failure
 
     bool proceed = false;
     final completer = Future<bool>(() async {

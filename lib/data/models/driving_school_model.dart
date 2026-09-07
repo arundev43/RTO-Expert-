@@ -35,7 +35,8 @@ class DrivingSchoolModel {
     this.wasPaidSubmission = false,
   });
 
-  factory DrivingSchoolModel.fromJson(Map<String, dynamic> json) => DrivingSchoolModel(
+  factory DrivingSchoolModel.fromJson(Map<String, dynamic> json) =>
+      DrivingSchoolModel(
         id: json['id'] as String,
         name: json['name'] as String,
         address: json['address'] as String,
@@ -47,7 +48,8 @@ class DrivingSchoolModel {
         photoUrl: json['photoUrl'] as String?,
         contributorId: json['contributorId'] as String,
         contributorName: json['contributorName'] as String,
-        status: SchoolStatus.values.byName(json['status'] as String? ?? 'pending'),
+        status:
+            SchoolStatus.values.byName(json['status'] as String? ?? 'pending'),
         rejectionReason: json['rejectionReason'] as String?,
         viewCount: json['viewCount'] as int? ?? 0,
         wasPaidSubmission: json['wasPaidSubmission'] as bool? ?? false,

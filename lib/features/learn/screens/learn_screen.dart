@@ -18,7 +18,14 @@ class _LearnScreenState extends State<LearnScreen> {
   List<QuestionModel> _all = [];
   bool _loading = true;
 
-  static const _topics = ['All', 'Signs', 'Fines', 'Signals', 'Scenarios', 'Rules'];
+  static const _topics = [
+    'All',
+    'Signs',
+    'Fines',
+    'Signals',
+    'Scenarios',
+    'Rules'
+  ];
 
   @override
   void didChangeDependencies() {
@@ -42,8 +49,8 @@ class _LearnScreenState extends State<LearnScreen> {
 
   List<QuestionModel> get _filtered => _all.where((q) {
         final matchesTopic = _topic == 'All' || q.topic == _topic;
-        final matchesQuery =
-            _query.isEmpty || q.question.toLowerCase().contains(_query.toLowerCase());
+        final matchesQuery = _query.isEmpty ||
+            q.question.toLowerCase().contains(_query.toLowerCase());
         return matchesTopic && matchesQuery;
       }).toList();
 
@@ -92,10 +99,12 @@ class _LearnScreenState extends State<LearnScreen> {
                       final q = _filtered[i];
                       return Card(
                         child: ExpansionTile(
-                          title: Text(q.question, style: Theme.of(context).textTheme.bodyLarge),
+                          title: Text(q.question,
+                              style: Theme.of(context).textTheme.bodyLarge),
                           subtitle: Padding(
                             padding: const EdgeInsets.only(top: 4),
-                            child: Text(q.topic, style: Theme.of(context).textTheme.bodyMedium),
+                            child: Text(q.topic,
+                                style: Theme.of(context).textTheme.bodyMedium),
                           ),
                           children: [
                             Padding(
@@ -105,11 +114,15 @@ class _LearnScreenState extends State<LearnScreen> {
                                 children: [
                                   Text(
                                     'Answer: ${q.options[q.correctIndex]}',
-                                    style: const TextStyle(fontWeight: FontWeight.w600),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w600),
                                   ),
                                   if (q.explanation != null) ...[
                                     const SizedBox(height: 6),
-                                    Text(q.explanation!, style: Theme.of(context).textTheme.bodyMedium),
+                                    Text(q.explanation!,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium),
                                   ],
                                 ],
                               ),

@@ -36,12 +36,16 @@ class _PracticeBody extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Practice ${practice.totalCount == 0 ? '' : '${practice.questionNumber}/${practice.totalCount}'}'),
+        title: Text(
+            'Practice ${practice.totalCount == 0 ? '' : '${practice.questionNumber}/${practice.totalCount}'}'),
         actions: [
           if (q != null)
             IconButton(
-              icon: Icon(practice.isBookmarked ? Icons.bookmark : Icons.bookmark_border),
-              onPressed: () => context.read<PracticeProvider>().toggleBookmark(),
+              icon: Icon(practice.isBookmarked
+                  ? Icons.bookmark
+                  : Icons.bookmark_border),
+              onPressed: () =>
+                  context.read<PracticeProvider>().toggleBookmark(),
             ),
         ],
       ),
@@ -55,7 +59,8 @@ class _PracticeBody extends StatelessWidget {
                   Card(
                     child: Padding(
                       padding: const EdgeInsets.all(16),
-                      child: Text('Q. ${q.question}', style: Theme.of(context).textTheme.titleMedium),
+                      child: Text('Q. ${q.question}',
+                          style: Theme.of(context).textTheme.titleMedium),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -66,15 +71,21 @@ class _PracticeBody extends StatelessWidget {
                       text: q.options[i],
                       selectedIndex: practice.selectedOptionIndex,
                       correctIndex: q.correctIndex,
-                      onTap: () => context.read<PracticeProvider>().selectOption(i),
+                      onTap: () =>
+                          context.read<PracticeProvider>().selectOption(i),
                     ),
                   ),
-                  if (practice.selectedOptionIndex != null && q.explanation != null)
+                  if (practice.selectedOptionIndex != null &&
+                      q.explanation != null)
                     Card(
-                      color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.06),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withValues(alpha: 0.06),
                       child: Padding(
                         padding: const EdgeInsets.all(14),
-                        child: Text(q.explanation!, style: Theme.of(context).textTheme.bodyMedium),
+                        child: Text(q.explanation!,
+                            style: Theme.of(context).textTheme.bodyMedium),
                       ),
                     ),
                   const Spacer(),
@@ -82,7 +93,8 @@ class _PracticeBody extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () => context.read<PracticeProvider>().next(),
+                        onPressed: () =>
+                            context.read<PracticeProvider>().next(),
                         child: const Text('Next'),
                       ),
                     ),

@@ -56,17 +56,21 @@ class OptionTile extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 14,
-                backgroundColor:
-                    borderColor?.withValues(alpha: 0.15) ?? Theme.of(context).dividerColor,
+                backgroundColor: borderColor?.withValues(alpha: 0.15) ??
+                    Theme.of(context).dividerColor,
                 child: Text(
                   '${index + 1}',
-                  style: TextStyle(fontSize: 13, color: borderColor ?? Colors.grey),
+                  style: TextStyle(
+                      fontSize: 13, color: borderColor ?? Colors.grey),
                 ),
               ),
               const SizedBox(width: 12),
-              Expanded(child: Text(text, style: Theme.of(context).textTheme.bodyLarge)),
+              Expanded(
+                  child:
+                      Text(text, style: Theme.of(context).textTheme.bodyLarge)),
               if (answered && isCorrectOption)
-                const Icon(Icons.check_circle, color: AppColors.success, size: 20),
+                const Icon(Icons.check_circle,
+                    color: AppColors.success, size: 20),
               if (answered && isSelected && !isCorrectOption)
                 const Icon(Icons.cancel, color: AppColors.error, size: 20),
             ],

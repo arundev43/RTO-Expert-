@@ -5,7 +5,14 @@ import 'practice_screen.dart';
 class PracticeHomeScreen extends StatelessWidget {
   const PracticeHomeScreen({super.key});
 
-  static const _topics = ['All', 'Signs', 'Fines', 'Signals', 'Scenarios', 'Rules'];
+  static const _topics = [
+    'All',
+    'Signs',
+    'Fines',
+    'Signals',
+    'Scenarios',
+    'Rules'
+  ];
 
   @override
   Widget build(BuildContext context) {

@@ -69,11 +69,13 @@ class SettingsScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Remove Ads Forever', style: Theme.of(ctx).textTheme.titleLarge),
+            Text('Remove Ads Forever',
+                style: Theme.of(ctx).textTheme.titleLarge),
             const SizedBox(height: 8),
             const Text('₹69 one-time · No ads anywhere in the app, ever.'),
             const SizedBox(height: 8),
-            const Text('Sign in to link your purchase — restores automatically on reinstall or a new device.'),
+            const Text(
+                'Sign in to link your purchase — restores automatically on reinstall or a new device.'),
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,

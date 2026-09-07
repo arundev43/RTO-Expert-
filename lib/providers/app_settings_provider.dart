@@ -38,10 +38,12 @@ class AppSettingsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> completeOnboarding(String newStateCode, String newLanguageCode) async {
+  Future<void> completeOnboarding(
+      String newStateCode, String newLanguageCode) async {
     stateCode = newStateCode;
     languageCode = newLanguageCode;
-    await StorageService.instance.setStateAndLanguage(newStateCode, newLanguageCode);
+    await StorageService.instance
+        .setStateAndLanguage(newStateCode, newLanguageCode);
     notifyListeners();
   }
 

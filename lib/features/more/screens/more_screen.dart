@@ -19,7 +19,10 @@ class MoreScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16),
               child: Card(
-                color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.08),
+                color: Theme.of(context)
+                    .colorScheme
+                    .primary
+                    .withValues(alpha: 0.08),
                 child: ListTile(
                   leading: const Icon(Icons.block),
                   title: const Text('Remove Ads Forever'),
@@ -32,12 +35,21 @@ class MoreScreen extends StatelessWidget {
                 ),
               ),
             ),
-          _tile(context, Icons.school_outlined, 'Driving Schools & RTO Offices',
-              () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SchoolsScreen()))),
+          _tile(
+              context,
+              Icons.school_outlined,
+              'Driving Schools & RTO Offices',
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const SchoolsScreen()))),
           _tile(context, Icons.description_outlined, 'Forms', () {}),
-          _tile(context, Icons.badge_outlined, 'Process of Driving Licence', () {}),
-          _tile(context, Icons.settings_outlined, 'Settings & Help',
-              () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()))),
+          _tile(context, Icons.badge_outlined, 'Process of Driving Licence',
+              () {}),
+          _tile(
+              context,
+              Icons.settings_outlined,
+              'Settings & Help',
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const SettingsScreen()))),
           _tile(context, Icons.share_outlined, 'Share App', () {}),
           _tile(context, Icons.star_outline, 'Rate App', () {}),
         ],
@@ -45,7 +57,8 @@ class MoreScreen extends StatelessWidget {
     );
   }
 
-  Widget _tile(BuildContext context, IconData icon, String label, VoidCallback onTap) {
+  Widget _tile(
+      BuildContext context, IconData icon, String label, VoidCallback onTap) {
     return ListTile(
       leading: Icon(icon),
       title: Text(label),

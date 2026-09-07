@@ -7,7 +7,8 @@ class AppColors {
   AppColors._();
 
   // Brand
-  static const Color primary = Color(0xFF2F6FED); // accent blue (buttons, links)
+  static const Color primary =
+      Color(0xFF2F6FED); // accent blue (buttons, links)
   static const Color success = Color(0xFF1FA971); // pass / correct
   static const Color error = Color(0xFFE0503A); // fail / incorrect
   static const Color warning = Color(0xFFF2A93B); // pending review

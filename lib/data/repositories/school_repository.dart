@@ -39,7 +39,8 @@ class SchoolRepository {
   /// Called by moderation backend/webhook in production. If a PAID
   /// submission is rejected, refund or grant a free retry token instead
   /// of silently keeping the fee — see project notes on trust.
-  Future<void> updateStatus(String schoolId, SchoolStatus status, {String? reason}) async {
+  Future<void> updateStatus(String schoolId, SchoolStatus status,
+      {String? reason}) async {
     final index = _schools.indexWhere((s) => s.id == schoolId);
     if (index == -1) return;
     _schools[index] = _schools[index].copyWithStatus(status, reason: reason);
@@ -47,7 +48,8 @@ class SchoolRepository {
 }
 
 extension on DrivingSchoolModel {
-  DrivingSchoolModel copyWithStatus(SchoolStatus status, {String? reason, bool? wasPaid}) {
+  DrivingSchoolModel copyWithStatus(SchoolStatus status,
+      {String? reason, bool? wasPaid}) {
     return DrivingSchoolModel(
       id: id,
       name: name,

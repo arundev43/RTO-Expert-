@@ -12,7 +12,8 @@ class ExamResultScreen extends StatelessWidget {
     final passed = exam.passed;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Result'), automaticallyImplyLeading: false),
+      appBar:
+          AppBar(title: const Text('Result'), automaticallyImplyLeading: false),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -37,7 +38,8 @@ class ExamResultScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Navigator.of(context).popUntil((r) => r.isFirst),
+                onPressed: () =>
+                    Navigator.of(context).popUntil((r) => r.isFirst),
                 child: const Text('Back to Home'),
               ),
             ),

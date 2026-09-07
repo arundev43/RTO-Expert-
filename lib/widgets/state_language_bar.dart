@@ -19,7 +19,8 @@ class StateLanguageBar extends StatelessWidget implements PreferredSizeWidget {
     final settings = context.watch<AppSettingsProvider>();
     final state = settings.selectedState;
     final langLabel = state?.languages
-        .firstWhere((l) => l.code == settings.languageCode, orElse: () => state.languages.first)
+        .firstWhere((l) => l.code == settings.languageCode,
+            orElse: () => state.languages.first)
         .label;
 
     return AppBar(
@@ -48,7 +49,8 @@ class StateLanguageBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             const Padding(
               padding: EdgeInsets.all(16),
-              child: Text('Change State', style: TextStyle(fontWeight: FontWeight.w600)),
+              child: Text('Change State',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
             ),
             SizedBox(
               height: 320,
@@ -72,7 +74,8 @@ class StateLanguageBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  void _pickLanguageFor(BuildContext context, AppSettingsProvider settings, StateModel s) {
+  void _pickLanguageFor(
+      BuildContext context, AppSettingsProvider settings, StateModel s) {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
