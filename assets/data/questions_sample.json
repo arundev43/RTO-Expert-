@@ -1,0 +1,52 @@
+[
+  {
+    "id": "q001",
+    "stateCode": "TN",
+    "languageCode": "en",
+    "topic": "Scenarios",
+    "question": "Driving the vehicle in a neutral gear in downhill is dangerous because it affects the...",
+    "options": ["Cooling system", "Speed governor", "Brake system"],
+    "correctIndex": 2,
+    "explanation": "Coasting in neutral disables engine braking, putting all load on the brake system and risking overheating/failure on long descents."
+  },
+  {
+    "id": "q002",
+    "stateCode": "TN",
+    "languageCode": "en",
+    "topic": "Signs",
+    "question": "The mandatory signs giving orders are mostly in...",
+    "options": ["Red/Blue circles", "Red Triangles", "Base triangles"],
+    "correctIndex": 0,
+    "explanation": "Mandatory signs (must-follow instructions) are circular, typically blue or red-bordered."
+  },
+  {
+    "id": "q003",
+    "stateCode": "TN",
+    "languageCode": "en",
+    "topic": "Rules",
+    "question": "What is the maximum permissible blood alcohol content for driving in India?",
+    "options": ["30 mg per 100 ml of blood", "80 mg per 100 ml of blood", "0 mg — total ban"],
+    "correctIndex": 0,
+    "explanation": "Under the Motor Vehicles Act, the legal limit is 30mg/100ml of blood."
+  },
+  {
+    "id": "q004",
+    "stateCode": "TN",
+    "languageCode": "en",
+    "topic": "Fines",
+    "question": "Driving without a valid license attracts a fine of up to...",
+    "options": ["₹500", "₹5,000", "₹50,000"],
+    "correctIndex": 1,
+    "explanation": "Driving without a valid license can attract a fine of up to ₹5,000 under the amended Motor Vehicles Act."
+  },
+  {
+    "id": "q005",
+    "stateCode": "TN",
+    "languageCode": "en",
+    "topic": "Signals",
+    "question": "A police officer with an arm raised vertically means...",
+    "options": ["Go ahead", "Stop all traffic from all directions", "Turn left only"],
+    "correctIndex": 1,
+    "explanation": "A vertically raised arm is a universal stop signal for traffic from all directions."
+  }
+]
