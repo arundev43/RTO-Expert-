@@ -1,22 +1,30 @@
 name: Build RTO Expert
 
+# Runs on every push/PR to main for quick feedback (debug APK),
+# and builds a signed release APK when you push a version tag
+# like "v1.0.0".
 on:
   push:
     branches: [ "main" ]
     tags: [ "v*.*.*" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch: {}
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
 
 env:
-  FLUTTER_VERSION: "3.24.0"
+  FLUTTER_VERSION: "3.24.0" # pin this to whatever you develop against locally
 
 jobs:
-  analyze_and_test:
-    name: Analyze & Test
+  auto_format:
+    name: Auto Format Dart Code
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -28,8 +36,36 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Check formatting
-        run: dart format --output=none --set-exit-if-changed .
+      - name: Format code
+        run: dart format .
+
+      - name: Commit formatted files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: auto-format dart code [skip ci]"
+          git push
+
+  analyze_and_test:
+    name: Analyze & Test
+    needs: auto_format
+    if: always() && (needs.auto_format.result == 'success' || needs.auto_format.result == 'skipped')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
 
       - name: Analyze
         run: flutter analyze
