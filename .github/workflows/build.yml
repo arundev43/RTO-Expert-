@@ -12,7 +12,7 @@ on:
   workflow_dispatch: {} # lets you trigger it manually from the Actions tab
 
 env:
-  FLUTTER_VERSION: "3.24.0" # pin this to whatever you develop against locally
+  FLUTTER_VERSION: "3.47.1" # pin this to whatever you develop against locally
 
 jobs:
   ensure_android_platform:
